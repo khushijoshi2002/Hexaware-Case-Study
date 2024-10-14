@@ -135,7 +135,7 @@ class ICarLeaseRepositoryImpl(ICarLeaseRepository):
             customers = []
             for row in self.cursor.fetchall():
                     customer_id, first_name, last_name, email, phone_number = row
-                    customer = Customer(customer_id, first_name, last_name, email, phone_number)
+                    customer = Customer(customer_id= customer_id, first_name=first_name,last_name= last_name,email= email,phone_number= phone_number)
                     customers.append(customer)
             return customers
         except Exception as e:
@@ -153,7 +153,7 @@ class ICarLeaseRepositoryImpl(ICarLeaseRepository):
             else:
                 row = self.cursor.fetchone()
                 customer_id, first_name, last_name, email, phone_number = row
-                return Customer(customer_id, first_name, last_name, email, phone_number)
+                return Customer(customer_id=customer_id,first_name= first_name,last_name= last_name,email= email,phone_number= phone_number)
         except CustomerNotFoundException as e:
             print(e)
         except Exception as e:
